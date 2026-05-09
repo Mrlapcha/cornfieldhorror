@@ -1,0 +1,139 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/main_menu.gd" id="menu_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/MuteButton.tscn" id="1_mute_button"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("menu_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.02, 0.02, 0.04, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 100.0
+offset_right = 400.0
+offset_bottom = 180.0
+horizontal_alignment = 1
+vertical_alignment = 1
+text = "CORNFIELD HORROR"
+
+[node name="SubtitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 180.0
+offset_right = 300.0
+offset_bottom = 210.0
+horizontal_alignment = 1
+text = "Survive the night. Find the keys. Escape."
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -80.0
+offset_right = 160.0
+offset_bottom = 150.0
+theme_override_constants/separation = 18
+
+[node name="ContinueBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 50)
+text = "CONTINUE"
+
+[node name="NewGameBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 50)
+text = "NEW GAME"
+
+
+[node name="SettingsBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 50)
+text = "SETTINGS"
+
+[node name="QuitBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 50)
+text = "QUIT"
+
+[node name="SettingsPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -120.0
+offset_right = 250.0
+offset_bottom = 120.0
+
+[node name="SettingsVBox" type="VBoxContainer" parent="SettingsPanel"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SettingsTitle" type="Label" parent="SettingsPanel/SettingsVBox"]
+layout_mode = 2
+text = "SETTINGS"
+horizontal_alignment = 1
+
+[node name="MusicRow" type="HBoxContainer" parent="SettingsPanel/SettingsVBox"]
+layout_mode = 2
+
+[node name="MusicLabel" type="Label" parent="SettingsPanel/SettingsVBox/MusicRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="SettingsPanel/SettingsVBox/MusicRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+value = 0.5
+
+[node name="SfxRow" type="HBoxContainer" parent="SettingsPanel/SettingsVBox"]
+layout_mode = 2
+
+[node name="SfxLabel" type="Label" parent="SettingsPanel/SettingsVBox/SfxRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(100, 0)
+text = "SFX"
+
+[node name="SfxSlider" type="HSlider" parent="SettingsPanel/SettingsVBox/SfxRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 1.0
+step = 0.05
+value = 0.8
+
+[node name="BackBtn" type="Button" parent="SettingsPanel/SettingsVBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 45)
+text = "BACK"
+
+[node name="MuteButton" parent="." instance=ExtResource("1_mute_button")]
+layout_mode = 1
+

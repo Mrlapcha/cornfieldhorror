@@ -1,0 +1,56 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/ending_overlay.gd" id="1_ending_overlay_script"]
+
+[node name="EndingOverlay" type="CanvasLayer"]
+layer = 20
+script = ExtResource("1_ending_overlay_script")
+
+[node name="Blocker" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 0
+color = Color(0.01, 0.01, 0.02, 0.78)
+
+[node name="Center" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="EndingPanel" type="PanelContainer" parent="Center"]
+custom_minimum_size = Vector2(620, 300)
+layout_mode = 2
+
+[node name="EndingVBox" type="VBoxContainer" parent="Center/EndingPanel"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Center/EndingPanel/EndingVBox"]
+layout_mode = 2
+horizontal_alignment = 1
+text = "ENDING"
+
+[node name="EndingName" type="Label" parent="Center/EndingPanel/EndingVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+horizontal_alignment = 1
+text = "Escape"
+
+[node name="Description" type="Label" parent="Center/EndingPanel/EndingVBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+autowrap_mode = 3
+horizontal_alignment = 1
+text = ""
+
+[node name="ButtonContainer" type="HBoxContainer" parent="Center/EndingPanel/EndingVBox"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 16
+
+[node name="RestartBtn" type="Button" parent="Center/EndingPanel/EndingVBox/ButtonContainer"]
+layout_mode = 2
+text = "RESTART"
+
+[node name="MenuBtn" type="Button" parent="Center/EndingPanel/EndingVBox/ButtonContainer"]
+layout_mode = 2
+text = "MAIN MENU"

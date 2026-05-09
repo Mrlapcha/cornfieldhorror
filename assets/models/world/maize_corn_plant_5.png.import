@@ -1,0 +1,45 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://4v2h3itr1art"
+path.s3tc="res://.godot/imported/maize_corn_plant_5.png-c4d1089c96f94b7b9cf47e5ec6fc6de5.s3tc.ctex"
+path.etc2="res://.godot/imported/maize_corn_plant_5.png-c4d1089c96f94b7b9cf47e5ec6fc6de5.etc2.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "aec1983539ab169e042e3ab1b7d0c0b1"
+}
+
+[deps]
+
+source_file="res://assets/models/world/maize_corn_plant_5.png"
+dest_files=["res://.godot/imported/maize_corn_plant_5.png-c4d1089c96f94b7b9cf47e5ec6fc6de5.s3tc.ctex", "res://.godot/imported/maize_corn_plant_5.png-c4d1089c96f94b7b9cf47e5ec6fc6de5.etc2.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets/models/world/maize_corn_plant_5.png"
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

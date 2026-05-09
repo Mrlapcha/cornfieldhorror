@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://v0a6e2rww8gl"]
+
+[ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="1_player_scene"]
+[ext_resource type="PackedScene" uid="uid://cpnnxotncj5ap" path="res://scenes/world/WorldGreybox.tscn" id="2_world_scene"]
+[ext_resource type="Script" uid="uid://dj1tguyag2ilv" path="res://scripts/world/main_bootstrap.gd" id="3_main_bootstrap_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/InventoryOverlay.tscn" id="5_inventory_overlay"]
+[ext_resource type="PackedScene" path="res://scenes/ui/EndingOverlay.tscn" id="6_ending_overlay"]
+[ext_resource type="Script" uid="uid://bw6dmp4vm1xbi" path="res://scripts/systems/ending_manager.gd" id="7_ending_manager_script"]
+[ext_resource type="PackedScene" path="res://scenes/ui/touch/TouchControlOverlay.tscn" id="8_touch_overlay"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PauseMenuOverlay.tscn" id="9_pause_overlay"]
+
+[sub_resource type="Environment" id="Environment_main"]
+background_mode = 1
+background_color = Color(0, 0, 0, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.08, 0.08, 0.12, 1)
+ambient_light_energy = 0.45
+reflected_light_source = 0
+fog_enabled = true
+fog_light_color = Color(0.01, 0.01, 0.02, 1)
+fog_density = 0.025
+fog_aerial_perspective = 0.0
+ssr_enabled = false
+volumetric_fog_enabled = false
+
+[node name="Main" type="Node3D" unique_id=581147285]
+script = ExtResource("3_main_bootstrap_script")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=613503407]
+environment = SubResource("Environment_main")
+
+[node name="MoonLight" type="DirectionalLight3D" parent="." unique_id=331449403]
+transform = Transform3D(-0.50000006, 0.55667037, -0.66341394, 0, 0.76604444, 0.6427876, 0.8660254, 0.32139382, -0.38302228, 0, 0, 0)
+light_color = Color(0.5, 0.58, 0.78, 1)
+light_energy = 0.42
+shadow_enabled = true
+shadow_max_distance = 60.0
+directional_shadow_blend_splits = false
+
+[node name="World" parent="." unique_id=119658211 instance=ExtResource("2_world_scene")]
+
+[node name="Player" parent="." unique_id=1859824709 instance=ExtResource("1_player_scene")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 34)
+
+
+[node name="InventoryOverlay" parent="." unique_id=1348725629 instance=ExtResource("5_inventory_overlay")]
+
+[node name="EndingOverlay" parent="." unique_id=372168007 instance=ExtResource("6_ending_overlay")]
+
+[node name="EndingManager" type="Node" parent="." unique_id=1772144531]
+script = ExtResource("7_ending_manager_script")
+
+[node name="TouchControlOverlay" parent="." unique_id=1986349578 instance=ExtResource("8_touch_overlay")]
+
+[node name="PauseMenuOverlay" parent="." unique_id=2143136035 instance=ExtResource("9_pause_overlay")]

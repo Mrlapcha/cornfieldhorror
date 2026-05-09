@@ -1,0 +1,322 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/inventory_overlay.gd" id="1_inventory_overlay_script"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/icon_key.png" id="icon_key"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/icon_notes.png" id="icon_notes"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/icon_flashlight.png" id="icon_flashlight"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/icon_battery.png" id="icon_battery"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/icon_matches.png" id="icon_matches"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/icon_fuel.png" id="icon_fuel"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/icon_musicbox.png" id="icon_musicbox"]
+[ext_resource type="Texture2D" path="res://assets/ui/icons/icon_skull.png" id="icon_skull"]
+
+[node name="InventoryOverlay" type="CanvasLayer"]
+layer = 11
+script = ExtResource("1_inventory_overlay_script")
+
+[node name="MiniHud" type="PanelContainer" parent="."]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 420.0
+offset_bottom = 50.0
+
+[node name="MiniHBox" type="HBoxContainer" parent="MiniHud"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MiniKeysLabel" type="Label" parent="MiniHud/MiniHBox"]
+layout_mode = 2
+text = "KEYS  0/3"
+
+[node name="MiniFlashlightLabel" type="Label" parent="MiniHud/MiniHBox"]
+layout_mode = 2
+text = "LIGHT  100%"
+
+[node name="MiniStaminaBar" type="ColorRect" parent="MiniHud/MiniHBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 10)
+size_flags_vertical = 5
+color = Color(0.12, 0.12, 0.14, 0.7)
+
+[node name="MiniStaminaFill" type="ColorRect" parent="MiniHud/MiniHBox/MiniStaminaBar"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.3, 0.82, 0.45, 0.8)
+
+[node name="MiniObjectiveLabel" type="Label" parent="MiniHud/MiniHBox"]
+layout_mode = 2
+text = "Find keys"
+
+[node name="TopLeftMargin" type="MarginContainer" parent="."]
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 300.0
+offset_bottom = 400.0
+
+[node name="HudPanel" type="PanelContainer" parent="TopLeftMargin"]
+layout_mode = 2
+
+[node name="HudVBox" type="VBoxContainer" parent="TopLeftMargin/HudPanel"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Title" type="Label" parent="TopLeftMargin/HudPanel/HudVBox"]
+layout_mode = 2
+text = "INVENTORY  [TAB]"
+
+[node name="Sep1" type="HSeparator" parent="TopLeftMargin/HudPanel/HudVBox"]
+layout_mode = 2
+
+[node name="KeysRow" type="HBoxContainer" parent="TopLeftMargin/HudPanel/HudVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="KeysIcon" type="TextureRect" parent="TopLeftMargin/HudPanel/HudVBox/KeysRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(22, 22)
+texture = ExtResource("icon_key")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="KeysLabel" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/KeysRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Keys"
+
+[node name="KeysValue" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/KeysRow"]
+layout_mode = 2
+text = "0 / 3"
+
+[node name="NotesRow" type="HBoxContainer" parent="TopLeftMargin/HudPanel/HudVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="NotesIcon" type="TextureRect" parent="TopLeftMargin/HudPanel/HudVBox/NotesRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(22, 22)
+texture = ExtResource("icon_notes")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NotesLabel" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/NotesRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Notes"
+
+[node name="NotesValue" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/NotesRow"]
+layout_mode = 2
+text = "0"
+
+[node name="Sep2" type="HSeparator" parent="TopLeftMargin/HudPanel/HudVBox"]
+layout_mode = 2
+
+[node name="FlashlightRow" type="HBoxContainer" parent="TopLeftMargin/HudPanel/HudVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="FlashlightIcon" type="TextureRect" parent="TopLeftMargin/HudPanel/HudVBox/FlashlightRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(22, 22)
+texture = ExtResource("icon_flashlight")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FlashlightLabel" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/FlashlightRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Flashlight"
+
+[node name="FlashlightValue" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/FlashlightRow"]
+layout_mode = 2
+text = "100%"
+
+[node name="BatteriesRow" type="HBoxContainer" parent="TopLeftMargin/HudPanel/HudVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BatteriesIcon" type="TextureRect" parent="TopLeftMargin/HudPanel/HudVBox/BatteriesRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(22, 22)
+texture = ExtResource("icon_battery")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="BatteriesLabel" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/BatteriesRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Batteries"
+
+[node name="BatteriesValue" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/BatteriesRow"]
+layout_mode = 2
+text = "0"
+
+[node name="Sep3" type="HSeparator" parent="TopLeftMargin/HudPanel/HudVBox"]
+layout_mode = 2
+
+[node name="MatchesRow" type="HBoxContainer" parent="TopLeftMargin/HudPanel/HudVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MatchesIcon" type="TextureRect" parent="TopLeftMargin/HudPanel/HudVBox/MatchesRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(22, 22)
+texture = ExtResource("icon_matches")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MatchesLabel" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/MatchesRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Matches"
+
+[node name="MatchesValue" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/MatchesRow"]
+layout_mode = 2
+text = ""
+
+[node name="FuelRow" type="HBoxContainer" parent="TopLeftMargin/HudPanel/HudVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="FuelIcon" type="TextureRect" parent="TopLeftMargin/HudPanel/HudVBox/FuelRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(22, 22)
+texture = ExtResource("icon_fuel")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="FuelLabel" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/FuelRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Fuel Can"
+
+[node name="FuelValue" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/FuelRow"]
+layout_mode = 2
+text = ""
+
+[node name="MusicBoxRow" type="HBoxContainer" parent="TopLeftMargin/HudPanel/HudVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MusicBoxIcon" type="TextureRect" parent="TopLeftMargin/HudPanel/HudVBox/MusicBoxRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(22, 22)
+texture = ExtResource("icon_musicbox")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MusicBoxLabel" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/MusicBoxRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music Box"
+
+[node name="MusicBoxValue" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/MusicBoxRow"]
+layout_mode = 2
+text = ""
+
+[node name="Sep4" type="HSeparator" parent="TopLeftMargin/HudPanel/HudVBox"]
+layout_mode = 2
+
+[node name="StaminaRow" type="HBoxContainer" parent="TopLeftMargin/HudPanel/HudVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="StaminaLabel" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/StaminaRow"]
+layout_mode = 2
+text = "Stamina"
+
+[node name="StaminaBarBG" type="ColorRect" parent="TopLeftMargin/HudPanel/HudVBox/StaminaRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(130, 12)
+size_flags_horizontal = 3
+size_flags_vertical = 5
+color = Color(0.12, 0.12, 0.14, 0.7)
+
+[node name="StaminaBarFill" type="ColorRect" parent="TopLeftMargin/HudPanel/HudVBox/StaminaRow/StaminaBarBG"]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 0.0
+color = Color(0.3, 0.82, 0.45, 0.9)
+
+[node name="Sep5" type="HSeparator" parent="TopLeftMargin/HudPanel/HudVBox"]
+layout_mode = 2
+
+[node name="ObjectiveRow" type="HBoxContainer" parent="TopLeftMargin/HudPanel/HudVBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ObjectiveIcon" type="TextureRect" parent="TopLeftMargin/HudPanel/HudVBox/ObjectiveRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(22, 22)
+texture = ExtResource("icon_skull")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ObjectiveLabel" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/ObjectiveRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Objective"
+
+[node name="ObjectiveValue" type="Label" parent="TopLeftMargin/HudPanel/HudVBox/ObjectiveRow"]
+layout_mode = 2
+text = "Find 3 keys"
+
+[node name="CrosshairCenter" type="CenterContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -12.0
+offset_right = 12.0
+offset_bottom = 12.0
+mouse_filter = 2
+
+[node name="CrosshairH" type="ColorRect" parent="CrosshairCenter"]
+layout_mode = 2
+custom_minimum_size = Vector2(18, 2)
+mouse_filter = 2
+color = Color(0.85, 0.85, 0.85, 0.5)
+
+[node name="CrosshairV" type="ColorRect" parent="CrosshairCenter"]
+layout_mode = 2
+custom_minimum_size = Vector2(2, 18)
+mouse_filter = 2
+color = Color(0.85, 0.85, 0.85, 0.5)
+
+[node name="InteractPrompt" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = 24.0
+offset_right = 180.0
+offset_bottom = 50.0
+mouse_filter = 2
+horizontal_alignment = 1
+text = ""
+
+[node name="BottomCenter" type="CenterContainer" parent="."]
+anchors_preset = 12
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -120.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MessagePanel" type="PanelContainer" parent="BottomCenter"]
+layout_mode = 2
+
+[node name="MessageLabel" type="Label" parent="BottomCenter/MessagePanel"]
+layout_mode = 2
+text = ""
+horizontal_alignment = 1
